@@ -3,7 +3,7 @@ const connection = require("../config/connection.js");
 const database = connection.database
 
 const orm = {
-    all: function(callback){
+    selectAll: function(callback){
         var command = "SELECT * FROM" + database + ";";
         connection.query(command, function(err, res){
             if (err){
@@ -12,5 +12,12 @@ const orm = {
             callback(result);
         })
     },
-    create: function()
-}
+    insertOne: function(){
+        
+    },
+    updateOne: function(){
+
+    }
+};
+
+module.exports = orm;
