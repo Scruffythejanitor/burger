@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Burger Time</h1>
+        <p class="lead">This is some text under the header</p>
+        <hr class="my-2">
+        <p><i class="fas fa-hamburger fa-10x"></i></p>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+             <form action="">
+            <div class="form-group">
+                <label for="burger">Name your burger</label>
+                <input type="text" class="form-control" id="burger" aria-describedby="burger" placeholder="GIVE THAT BURGER A NAME!">
+                <button type="submit" class="btn btn-primary mt-3">Submit your burger!</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <hr class="m-3">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Burgers to be eaten</div>
+                    <div class="card-body">
+                        <ul>
+                            {{#each burger}}
+                        </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Burgers eaten</div>
+                    <div class="card-body">
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
