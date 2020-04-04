@@ -7,11 +7,11 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-             <form action="">
+             <form class="burger-form">
             <div class="form-group">
                 <label for="burger">Name your burger</label>
-                <input type="text" class="form-control" id="burger" aria-describedby="burger" placeholder="GIVE THAT BURGER A NAME!">
-                <button type="submit" class="btn btn-primary mt-3">Submit your burger!</button>
+                <input type="text" class="form-control" id="addburger" aria-describedby="burger" placeholder="GIVE THAT BURGER A NAME!">
+                <button type="submit" class="btn btn-primary mt-3 submit-burger">Submit your burger!</button>
             </div>
         </form>
         </div>
@@ -23,8 +23,15 @@
                 <div class="card-header">Burgers to be eaten</div>
                     <div class="card-body">
                         <ul>
-                            {{#each burger}}
-                            {{/each}}
+                             {{#each burgers}}
+                        {{#unless devoured}}
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fas fa-hamburger"></span>
+                        </button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
                         </ul>
                     </div>
             </div>
@@ -33,7 +40,16 @@
             <div class="card">
                 <div class="card-header">Burgers eaten</div>
                     <div class="card-body">
-
+                        <ul>
+                             {{#each burgers}}
+                        {{#if devoured}}
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="deleteburger btn btn-danger" id="trash" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                        </ul>
                     </div>
             </div>
         </div>
