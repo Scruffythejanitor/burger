@@ -1,17 +1,19 @@
-<div class="container">
-    <div class="jumbotron text-center">
-        <h1 class="display-3">Burger Time</h1>
-        <p class="lead">This is some text under the header</p>
+<div class="container bg-light">
+    <div class="jumbotron shadow bg-warning text-center">
+        <h1 id="whatever" class="display-1 font-weight-bold">Burger Time</h1>
+        <p class="lead font-weight-bold">The app that lets you make a burger, eat it, then dispose of it.</p>
         <hr class="my-2">
-        <p><i class="fas fa-hamburger fa-10x"></i></p>
+        
+                <p><i class="fas fa-utensils fa-8x pr-5"></i><i class="fas fa-plus fa-4x pr-5"></i><i class="fas fa-hamburger fa-8x pr-5"></i><i class="fas fa-equals fa-4x pr-5"></i><i class="fas fa-poop fa-8x"></i></p>
+    
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
              <form class="burger-form">
             <div class="form-group">
-                <label for="burger">Name your burger</label>
-                <input type="text" class="form-control" id="addburger" aria-describedby="burger" placeholder="GIVE THAT BURGER A NAME!">
-                <button type="submit" class="btn btn-primary mt-3 submit-burger">Submit your burger!</button>
+                <label for="burger"><h2 class="font-weight-bold">Name That Burger (Please Be Clever)</h2></label>
+                <input type="text" class="form-control form-control-lg text-center" id="addburger" aria-describedby="burger" placeholder="GIVE THAT BURGER A NAME!">
+                <button type="submit" id="submit-burger" class="btn-lg btn-success mt-3 submit-burger">Submit your burger!</button>
             </div>
         </form>
         </div>
@@ -19,37 +21,49 @@
     <hr class="m-3">
     <div class="row text-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Burgers to be eaten</div>
+            <div class="card bg-warning shadow mt-3">
+                <div class="card-header"><h2 class="font-weight-bold">Burgers To Eat</h2></div>
                     <div class="card-body">
-                        <ul>
                              {{#each burgers}}
                         {{#unless devoured}}
-                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                        <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
-                            data-newDevoured="{{devour}}"><span class="fas fa-hamburger"></span>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="eatburger btn btn-success" id="eatbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}" data-toggle="tooltip" data-placement="bottom" title="Eat This Burger"><span class="fas fa-hamburger"></span>
                         </button>
+                        </div>
+                        </div>
+                        
+                        
                         <hr>
                         {{/unless}}
                         {{/each}}
-                        </ul>
                     </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Burgers eaten</div>
+            <div class="card bg-warning shadow mt-3">
+                <div class="card-header"><h2 class="font-weight-bold">Burgers To Dispose Of</h2></div>
                     <div class="card-body">
-                        <ul>
+                        
                              {{#each burgers}}
                         {{#if devoured}}
-                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                        <button type="button" class="deleteburger btn btn-danger" id="trash" data-id="{{this.id}}"
-                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="deleteburger btn btn-danger shadow-sm" id="trash" data-id="{{this.id}}"
+                                data-newDevoured="{{devour}}"><i class="fas fa-poop"></i></button>
+                            </div>
+                        </div>
                         <hr>
                         {{/if}}
                         {{/each}}
-                        </ul>
+                        
                     </div>
             </div>
         </div>
